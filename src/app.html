@@ -1,0 +1,82 @@
+<!--
+IMPORTANT:
+Any resources from this project should be referenced relatively to the domain! (ex: /resources/app_name/img/image.png)
+This is because this app's files will exist on an S3 bucket resources/test_app
+BUT the app could be loaded on any page in the WCM.
+-->
+
+<!--
+1. HEADER
+When a WCM user places this app's shortcode on their page,
+everything inside the cot-app:head tag will be loaded at the end of the page's HEAD tag.
+It should contain stylesheet references (and possibly other stuff) that this application requires.
+-->
+<!-- cot-app:head -->
+<!-- The useref gulp plugin will concatenate all files inside of this build tag and place the resulting file at the specified path -->
+<!--@exec startBuildTagWithCacheBuster('styles/main.css')-->
+<!-- CoreJS uses the following tag to inject bower_components stylesheet file references: -->
+<!-- core:css -->
+<!-- endinject -->
+
+<!-- place your application stylesheet references here: -->
+<link rel="stylesheet" type="text/css" href="/resources/test_app/styles/main.css">
+
+<!-- endbuild -->
+<!--@exec startBuildTagWithCacheBuster('styles/core_print.css', 'media="print"')-->
+<!-- CoreJS uses the following tag to inject bower_components print-only stylesheet file references: -->
+<!-- core_print:css -->
+<!-- endinject -->
+
+<!-- place any application print-only stylesheet references here -->
+
+<!-- endbuild -->
+<!-- cot-app:head end-->
+
+<!--
+2. BODY
+Everything inside the cot-app:body tag will be loaded in place of their shortcode.
+It should contain the HTML elements that make up the visual portion of this application.
+IMPORTANT:
+It is best to avoid the use of IDs on HTML elements because
+- They could collide with other WCM elements if you are not careful.
+- A WCM author could place your application on the same page more than once.
+-->
+<!-- cot-app:body -->
+<div>Hello World from HTML</div>
+<div class="test_app_container"></div>
+<img src="/resources/test_app/img/sample.jpg" alt="" class="my-image">
+
+<p>Core uses <a href="https://www.npmjs.com/package/gulp-preprocess">gulp-preprocess</a> to allow for preprocessing:</p>
+<!-- @if ENV='local' || ENV='dev' -->
+<strong>You are building in the <!-- @echo ENV --> environment</strong>
+<!-- @endif -->
+<p>See preprocessorOptions() in gulp_helper.js for available variables</p>
+<p>See <a href="https://github.com/jsoverson/preprocess#directive-syntax">preprocess</a> for more about preprocessor syntax</p>
+
+<!-- cot-app:body end-->
+
+<!--
+3. FOOTER
+Everything inside the cot-app:footer tag will be loaded at the end of the page's BODY tag.
+It should contain script references that this application requires.
+-->
+<!-- cot-app:footer -->
+<!-- The useref gulp plugin will concatenate all files inside of this tag and place the resulting file at the specified path -->
+<!--@exec startBuildTagWithCacheBuster('scripts/main.js')-->
+<!-- CoreJS uses the following tag to inject bower_components script file references: -->
+<!-- core:js -->
+<!-- endinject -->
+
+<!-- place your application script references here: -->
+<script type="text/javascript" src="/resources/test_app/scripts/demo_form.js"></script>
+<script type="text/javascript" src="/resources/test_app/scripts/main.js"></script>
+
+<!-- endbuild -->
+<!--@if ENV!='prod'-->
+<script type="text/javascript">
+  console.log('test_app running on <!--@echo ENV--> environment');
+  console.log('test_app qa release: <!--@echo QA_RELEASE-->');
+  console.log('test_app build: <!--@echo BUILD_ID-->');
+</script>
+<!--@endif-->
+<!-- cot-app:footer end-->

@@ -1,0 +1,35 @@
+//A sample main scss file. Use this as a starting point for your css.
+
+//IMPORTANT:
+//Any resources from this project should be referenced with the relatively to the domain! (ex: /resources/app_name/img/image.png)
+//This is because this app's files will exist on an S3 bucket resources/test_app
+// BUT the app could be loaded on any page in the WCM.
+
+//A sample usage of a SASS partials!
+@import "partial_styles";
+
+//A sample usage of SASS variables!
+$blue: blue;
+
+//A sample usage of SASS nesting!
+.main {
+  .other {
+    font-weight:bold;
+    color: $blue;
+    font-size:$main-font-size;
+  }
+}
+
+img.my-image {
+  width: 100px;
+  height: 100px;
+}
+//more about SASS: http://sass-lang.com/guide
+
+//Core uses https://www.npmjs.com/package/gulp-preprocess to allow for preprocessing:
+/* @if ENV=='local' || ENV=='dev'*/
+body{color: red;}
+/* @endif */
+.env-class-/* @echo ENV*/{}
+//See preprocessorOptions() in gulp_helper.js for available variables
+//See https://github.com/jsoverson/preprocess#directive-syntax for more about preprocessor syntax

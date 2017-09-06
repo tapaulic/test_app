@@ -1,0 +1,48 @@
+{
+  "name": "core",
+  "version": "3.2.1",
+  "authors": [
+    {
+      "name": "Rob Williams",
+      "email": "rob.williams@toronto.ca"
+    }
+  ],
+  "description": "WRP core web app library. Use for creating SPA-style apps with forms, that match the www.toronto.ca look and feel.",
+  "main": "js/cot_app.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile.js",
+    "package.json",
+    "/css",
+    "/fonts",
+    "/html",
+    "/img",
+    "/js",
+    "/scaffold",
+    "/scaffold_embedded"
+  ],
+  "dependencies": {
+    "jquery": "2.2.4",
+    "html5shiv": "~3.7.3",
+    "respond": "~1.4.2",
+    "jquery.cookie": "~1.4.1",
+    "bootstrap": "3.3.7",
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35",
+    "intl-tel-input": "~6.0.6",
+    "jquery.maskedinput": "~1.4.0",
+    "jquery-editable-select": "~2.2.4",
+    "placeholders": "~4.0.1",
+    "fullcalendar": "~2.3.1",
+    "bootstrap-daterangepicker": "~2.1.24",
+    "backbone": "^1.3.3",
+    "roboto-fontface": "^0.7.0",
+    "bootbox.js": "bootbox#^4.4.0",
+    "bootstrap-multiselect": "^0.9.13",
+    "dropzone": "^5.1.1"
+  }
+}
