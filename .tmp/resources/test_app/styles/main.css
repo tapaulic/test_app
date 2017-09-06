@@ -1,0 +1,14 @@
+.main .other {
+  font-weight: bold;
+  color: blue;
+  font-size: 10px;
+}
+
+img.my-image {
+  width: 100px;
+  height: 100px;
+}
+
+body {
+  color: red;
+}
